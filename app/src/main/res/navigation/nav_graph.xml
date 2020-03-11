@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_startFragment_to_listFragment"
-            app:destination="@id/listFragment" />
+            app:destination="@id/listFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/startFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/listFragment"
@@ -21,7 +25,11 @@
         tools:layout="@layout/fragment_list" >
         <action
             android:id="@+id/action_listFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -31,6 +39,10 @@
         <action
             android:id="@+id/action_detailsFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
