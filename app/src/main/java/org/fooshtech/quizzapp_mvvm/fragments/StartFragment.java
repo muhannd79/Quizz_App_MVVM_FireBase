@@ -52,6 +52,7 @@ public class StartFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         mFirebaseAuth = FirebaseAuth.getInstance();
 
         mNavController = Navigation.findNavController(view);
@@ -67,6 +68,7 @@ public class StartFragment extends Fragment {
         super.onStart();
         FirebaseUser currentUser = mFirebaseAuth.getCurrentUser();
         if(currentUser == null){
+
             //Create a New Account
             mStartFeedBack.setText("Creating An Account...");
 
@@ -84,6 +86,7 @@ public class StartFragment extends Fragment {
                     }
                 }
             });
+
         } else  {
             // Navigate to HomePage
             mStartFeedBack.setText("Logged in...");
